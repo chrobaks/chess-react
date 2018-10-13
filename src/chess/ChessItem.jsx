@@ -4,18 +4,28 @@ const ChessItem = (props) => {
 
     const itemNames = ['Pawn', 'Rook', 'Knight', 'Bishop', 'Queen', 'King'];
     let name = itemNames[0];
-    
+
     if (props.rowId === 0 || props.rowId === 7) {
-        if (props.char === 'a' || props.char === 'h') {
-            name = itemNames[1];
-        } else if (props.char === 'b' || props.char === 'g') {
-            name = itemNames[2];
-        } else if (props.char === 'c' || props.char === 'f') {
-            name = itemNames[3];
-        } else if (props.char === 'd') {
-            name = itemNames[4];
-        } else if (props.char === 'e') {
-            name = itemNames[5];
+        // eslint-disable-next-line
+        switch(props.char) {
+            case 'a':
+            case 'h':
+                name = itemNames[1];
+                break;
+            case 'b':
+            case 'g':
+                name = itemNames[2];
+                break;
+            case 'c':
+            case 'f':
+                name = itemNames[3];
+                break;
+            case 'd':
+                name = itemNames[4];
+                break;
+            case 'e':
+                name = itemNames[5];
+                break;
         }
     }
     return (<div id={props.id} className="chess-item">{name}</div>);
